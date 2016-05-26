@@ -5,17 +5,16 @@
 		<div class="row" name='<%= col %>'>
 			<p>	
 				  	<div><%= col.title %></div>
+				  	<div><img src='<%= col.path_to_image %>'/></div>  <!-- написать big_to_path для увеличения onclick="getThumbnail()" -->
 				  	<div><%= col.description %></div>
 				  	<div><%= col.price %></div>
 				  	<div><%= col.size %></div>
-				  	<div><img src='<%= col.path_to_image %>' alt='path_to_image'></div>
+				  	<div>
+				  		<button class='btn btn-sm btn-success' onclick="add_to_cart(<%= col.id %>)">Add to cart</button>
+				  	</div>
 			</p>	
-					<button class="btn btn-primary" onclick="something()">Click me</button>
 		</div>
 	</div>		
 <% end %>
 
-
-
-
-
+<button class="btn btn-primary" onclick="something()">Click me</button>
