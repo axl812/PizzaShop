@@ -18,7 +18,6 @@ class Product < ActiveRecord::Base
 end
 
 before do
-	
 end
 
 get '/' do
@@ -28,4 +27,8 @@ end
 
 get '/about' do	
 	erb :about
+end
+
+post "/cart" do 
+	erb "Hello!"	
 end
