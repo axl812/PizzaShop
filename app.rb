@@ -25,10 +25,22 @@ get '/' do
 	erb :index
 end
 
+post '/' do
+	
+	erb :cart
+end
+
 get '/about' do	
 	erb :about
 end
 
-post "/cart" do 
-	erb "Hello!"	
+get '/cart' do
+	@orders = params[:orders]
+	
+	erb :cart
+end
+
+post '/cart' do
+
+	erb :cart
 end

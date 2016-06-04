@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Sinatra + Twitter Bootstrap</title>
-		<link rel="icon" type="image/ico" href="favicon.ico" />
+		<link rel="icon" type="image/ico" href="favicon.ico"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
 		<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,8 +41,8 @@
 			    <ul class="nav navbar-nav navbar-right">
 			    <li>
 			    	<form action="/cart" method="post">
-					<input id="orders_input" name="orders" type="hidden" size="40"/>
-				   	<input type="submit" class="btn btn-primary btn-lg" value="Cart (...)"/>
+					<input id="orders_input" name="orders" type="hidden" size="40" value="<%= @orders %>" />
+				   	<input id="orders_button" type="submit" class="btn btn-primary btn-lg" value="Cart (...)"/>
 			    </form>
 			     </li>
 			    </ul>
@@ -57,6 +57,15 @@
 			</div>
 
 	</div>
+
+	<script type="text/javascript">
+$(function() {
+
+	update_orders_input();
+	update_orders_button();
+
+});
+	</script>
  
   </body>
 </html>
