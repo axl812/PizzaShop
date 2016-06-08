@@ -36,7 +36,7 @@ function update_orders_button()
 
 function cart_get_number_of_items()
 {
-	var cnt = 0
+	var cnt = 0;
 	for(var i = 0; i < window.localStorage.length; i++) 
 	{
 		var key = window.localStorage.key(i); // получаем ключ
@@ -52,7 +52,7 @@ function cart_get_number_of_items()
 
 function cart_get_orders()
 {
-	var orders = 0
+	var orders = 0;
 	for(var i = 0; i < window.localStorage.length; i++) 
 	{
 		var key = window.localStorage.key(i); // получаем ключ
@@ -64,6 +64,12 @@ function cart_get_orders()
 		}
 	}
 	return orders;
+}
+
+function cancel_order()
+{
+	alert('aaa');
+	return false;
 }
 
 

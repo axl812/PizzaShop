@@ -1,4 +1,3 @@
-#encoding: utf-8
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
@@ -7,17 +6,17 @@ require 'sinatra/activerecord'
 set :database, "sqlite3:pizzashop.db"
 
 class Product < ActiveRecord::Base
-	validates :title, presence: true
-	validates :description, presence: true
-	validates :price, presence: true
-	validates :size, presence: true
-	validates :is_spicy, presence: true
-	validates :is_veg, presence: true
-	validates :best_offer, presence: true
-	validates :path_to_image, presence: true
+	# validates :title, presence: true
+	# validates :description, presence: true
+	# validates :price, presence: true
+	# validates :size, presence: true
+	# validates :is_spicy, presence: true
+	# validates :is_veg, presence: true
+	# validates :best_offer, presence: true
+	# validates :path_to_image, presence: true
 end
 
-before do
+class Order < ActiveRecord::Base
 end
 
 get '/' do
@@ -25,16 +24,17 @@ get '/' do
 	erb :index
 end
 
-post '/' do
-	erb :cart
-end
-
 get '/about' do	
 	erb :about
 end
 
+post '/place_order' do
+	@order = Order.create params[:order]
+	erb :order_placed
+end
+
 post '/cart' do
-	@orders_input = params[:orders]
+	@orders_input = params[:orders_input]
 	@items = parse_orders_input @orders_input
 
 	@items.each do |item|
@@ -45,7 +45,6 @@ post '/cart' do
 end
 
 def parse_orders_input orders_input
-
 	s1 = orders_input.split(/,/)
 
 	arr = []
