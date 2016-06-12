@@ -19,8 +19,12 @@ end
 class Order < ActiveRecord::Base
 end
 
+# before do
+# 	@products = Product.new
+# end
+
 get '/' do
-	@product = Product.all
+	@products = Product.all
 	erb :index
 end
 

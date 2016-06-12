@@ -17,6 +17,13 @@
 		  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 		<![endif]-->
+		 <script type="text/javascript">
+		$(function() {
+			update_orders_input();
+			update_orders_button();
+			clear_field();
+		});
+	</script> 
 	</head>
 	<body>
 		<div class="container">
@@ -41,8 +48,8 @@
 			    <ul class="nav navbar-nav navbar-right">
 			    <li>
 			    	<form action="/cart" method="post">
-					<input id="orders_input" name="orders_input" type="hidden" />
-				   	<input id="orders_button" type="submit" class="btn btn-primary btn-lg" value="Cart (...)"/>
+					<input id="orders_input" name="orders_input"  />
+				   	<input id="orders_button" type="submit" class="btn btn-primary btn-lg" value="Cart ()"/>
 			    </form>
 			     </li>
 			    </ul>
@@ -57,15 +64,5 @@
 			</div>
 
 	</div>
-
-	<script type="text/javascript">
-		$(function() {
-
-			update_orders_input();
-			update_orders_button();
-
-		});
-	</script>
- 
   </body>
 </html>

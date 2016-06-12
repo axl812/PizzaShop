@@ -22,6 +22,16 @@ function add_to_cart(id)
 	update_orders_button();
 }
 
+function clear_field()
+{
+	var orders = update_orders_input()
+		if(orders == '0')
+			{
+				orders.clear();
+			}
+	$('#orders_input').val(orders);
+}
+
 function update_orders_input()
 {
 	var orders = cart_get_orders();
@@ -30,7 +40,7 @@ function update_orders_input()
 
 function update_orders_button()
 {
-	var  text = 'Cart (' + (cart_get_number_of_items() + ')');
+	var text = 'Cart (' + (cart_get_number_of_items() + ')');
 	$('#orders_button').val(text);	
 }
 
@@ -53,7 +63,7 @@ function cart_get_number_of_items()
 function cart_get_orders()
 {
 	var orders = 0;
-	for(var i = 0; i < window.localStorage.length; i++) 
+	for(var i = 0; i < window.localStorage.length; i++)
 	{
 		var key = window.localStorage.key(i); // получаем ключ
 		var value = window.localStorage.getItem(key); // получаем значение по ключу hh[key] = x
@@ -69,8 +79,12 @@ function cart_get_orders()
 function cancel_order()
 {
 	window.localStorage.clear();
+
 	update_orders_input();
 	update_orders_button();
+
+	$('#cart').text('Your cart is now empty');
+
 	return false;
 }
 
