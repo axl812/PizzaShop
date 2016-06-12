@@ -22,16 +22,6 @@ function add_to_cart(id)
 	update_orders_button();
 }
 
-function clear_field()
-{
-	var orders = update_orders_input()
-		if(orders == '0')
-			{
-				orders.clear();
-			}
-	$('#orders_input').val(orders);
-}
-
 function update_orders_input()
 {
 	var orders = cart_get_orders();
@@ -62,7 +52,7 @@ function cart_get_number_of_items()
 
 function cart_get_orders()
 {
-	var orders = 0;
+	var orders = '';
 	for(var i = 0; i < window.localStorage.length; i++)
 	{
 		var key = window.localStorage.key(i); // получаем ключ

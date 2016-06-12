@@ -43,7 +43,7 @@ post '/cart' do
 	@orders_input = params[:orders_input]
 	@items = parse_orders_input @orders_input
 
-# сообщение, то корзина пустаы
+# сообщение, что корзина пуста
 	if @items.length == 0
 		return erb :cart_is_empty
 	end
@@ -58,8 +58,9 @@ post '/cart' do
 end
 
 def parse_orders_input orders_input
+	
 	s1 = orders_input.split(/,/)
-
+	
 	arr = []
 
 	s1.each do |x|
